@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mariam Lamrani | Cybersecurity Engineering Student</title>
+<meta name="description" content="Portfolio of Mariam Lamrani, cybersecurity engineering student: SIEM, network security labs, detection engineering and CTFs.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#14101f; --slate:#241f35; --violet:#7c5cff; --lilac:#c4b8ff;
+  --grey:#8a869a; --mist:#f3f2f7; --white:#fff;
+  --head:'Sora','Segoe UI',system-ui,sans-serif; --body:'DM Sans','Segoe UI',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{font-family:var(--body);color:var(--ink);background:var(--mist);line-height:1.65;font-size:17px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--violet);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--head);line-height:1.15}
+h2{font-size:clamp(1.7rem,4vw,2.3rem);margin-bottom:12px}
+.lead{color:var(--grey);max-width:60ch;margin-bottom:36px}
+section{padding:88px 0}
+.dark{background:var(--ink);color:#ece9f6}
+.dark .lead{color:#a39fb6}
+
+/* nav */
+nav{position:sticky;top:0;z-index:10;background:rgba(20,16,31,.88);backdrop-filter:blur(10px);border-bottom:1px solid #ffffff14}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:60px;flex-wrap:wrap}
+.logo{font-family:var(--head);font-weight:700;color:#fff;text-decoration:none}
+.logo span{color:var(--violet)}
+nav ul{display:flex;gap:22px;list-style:none;padding:0;flex-wrap:wrap}
+nav ul a{color:#cfcae0;text-decoration:none;font-size:.95rem;transition:color .2s}
+nav ul a:hover{color:#fff}
+
+/* hero */
+.hero{position:relative;background:var(--ink);color:#fff;padding:0;overflow:hidden}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%}
+.hero .wrap{position:relative;padding-top:110px;padding-bottom:110px}
+.hero h1{font-size:clamp(2.2rem,6.5vw,4.4rem);max-width:15ch;letter-spacing:-.02em}
+.role{margin:22px 0 8px;font-family:var(--head);font-size:1.15rem;color:var(--lilac);min-height:1.7em}
+.role::after{content:"";display:inline-block;width:2px;height:1.1em;background:var(--lilac);margin-left:4px;vertical-align:-3px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.hero p.sub{color:#b9b4cc;max-width:56ch;margin-bottom:34px}
+.btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-block;padding:13px 24px;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid var(--violet);transition:transform .2s,background .2s}
+.btn.fill{background:var(--violet);color:#fff}
+.btn.ghost{color:#fff}
+.btn:hover{transform:translateY(-3px);background:#9179ff;border-color:#9179ff}
+.facts{display:flex;gap:44px;flex-wrap:wrap;margin-top:60px;padding-top:26px;border-top:1px solid #ffffff1f}
+.facts b{display:block;font-family:var(--head);font-size:1.9rem;color:#fff}
+.facts span{color:#a39fb6;font-size:.95rem}
+
+/* about + education */
+.about{display:grid;grid-template-columns:1.3fr 1fr;gap:48px}
+.about p+p{margin-top:14px}
+.edu{background:#fff;border-left:5px solid var(--violet);padding:24px;border-radius:6px}
+.edu h3{font-size:1.1rem;margin-bottom:6px}
+.edu p{color:var(--grey);font-size:.95rem}
+.langs{margin-top:22px;display:flex;gap:10px;flex-wrap:wrap}
+
+/* tags */
+.tag{display:inline-block;padding:4px 12px;border-radius:999px;font-size:.85rem;background:#7c5cff1f;color:#5a3fe0;font-weight:500}
+.dark .tag{background:#7c5cff2e;color:var(--lilac)}
+
+/* projects */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:22px}
+.card{background:var(--slate);border:1px solid #ffffff12;border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:14px;transition:transform .25s,border-color .25s,box-shadow .25s}
+.card:hover{transform:translateY(-6px);border-color:var(--violet);box-shadow:0 18px 40px -18px #7c5cff99}
+.card h3{font-size:1.2rem;color:#fff}
+.card p{color:#b9b4cc;font-size:.97rem}
+.card ul{padding-left:18px;color:#b9b4cc;font-size:.95rem}
+.card .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto}
+.card a.link{color:var(--lilac);font-weight:700;text-decoration:none}
+.card a.link:hover{text-decoration:underline}
+.card.wide{grid-column:1/-1}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
+.skill{background:#fff;border-radius:12px;padding:24px;border-top:4px solid var(--violet);transition:transform .25s,box-shadow .25s}
+.skill:hover{transform:translateY(-5px);box-shadow:0 16px 30px -18px #14101f66}
+.skill h3{font-size:1.05rem;margin-bottom:12px}
+.skill .tags{display:flex;flex-wrap:wrap;gap:8px}
+
+/* experience */
+.exp{background:#fff}
+.jobs{display:grid;gap:18px}
+.job{border-left:5px solid var(--violet);background:var(--mist);border-radius:6px;padding:22px 26px}
+.job .top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.job h3{font-size:1.1rem}
+.job .when{color:var(--grey);font-size:.95rem}
+.job .org{color:#5a3fe0;font-weight:500;margin:2px 0 8px}
+.job ul{padding-left:18px;color:#3b3650;font-size:.97rem}
+/* contact */
+.contact{text-align:center}
+.contact .lead{margin-inline:auto}
+.contact .btns{justify-content:center}
+footer{background:#0d0a16;color:#7d7990;text-align:center;padding:26px;font-size:.9rem}
+
+@media(max-width:760px){
+  .about{grid-template-columns:1fr}
+  section{padding:64px 0}
+  .hero .wrap{padding-top:70px;padding-bottom:70px}
+  nav ul{gap:14px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top">Mariam<span>.</span>L</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <canvas id="net" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <h1>I build networks to learn how to defend them.</h1>
+    <div class="role" id="role" aria-live="polite"></div>
+    <p class="sub">I’m Mariam Lamrani, a cybersecurity engineering student. I build realistic labs, monitor them with a SIEM, and write the detection rules that catch attacks.</p>
+    <div class="btns">
+      <a class="btn fill" href="#projects">See my projects</a>
+      <a class="btn ghost" href="cv.pdf" download>Download my CV</a>
+    </div>
+    <div class="facts">
+      <div><b>5th year</b><span>Cybersecurity engineering</span></div>
+      <div><b>6 labs</b><span>Built and documented</span></div>
+      <div><b>3 languages</b><span>Arabic, French, English</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap about">
+    <div>
+      <h2>About me</h2>
+      <p>I’m a final-year cybersecurity engineering student at ESIN, Université Internationale de Rabat (UIR), based in Kénitra, Morocco.</p>
+      <p>I learn best by building: simulating attacks, watching how they look in the logs, then writing the rules and hardening that stop them. My work sits between blue team monitoring and a bit of red team curiosity.</p>
+      <div class="langs">
+        <span class="tag">Arabic, native</span><span class="tag">French, good</span><span class="tag">English, good</span>
+      </div>
+    </div>
+    <div class="edu">
+      <h3>Education</h3>
+      <p><b>Engineering cycle, Cybersecurity</b><br>UIR, 2024 to 2026</p>
+      <p style="margin-top:12px"><b>Preparatory classes, Computer Engineering</b><br>UIR, 2022 to 2024</p>
+      <p style="margin-top:12px"><b>Baccalaureate, Physical Sciences</b><br>Institut Les Mimosas du Gharb, 2022</p>
+    </div>
+  </div>
+</section>
+
+<section class="dark" id="projects">
+  <div class="wrap">
+    <h2>Projects</h2>
+    <p class="lead">Hands-on labs and competitions where I put theory into practice.</p>
+    <div class="grid">
+
+      <article class="card wide">
+        <h3>Hospital network security lab (final-year project)</h3>
+        <p>A complete lab simulating a hospital network, with a domain, a SIEM, attack simulations and system hardening, all running on a physical HPE ProLiant server with virtual machines.</p>
+        <ul>
+          <li>Windows Server 2019 Active Directory with RBAC, OUs and SMB shares</li>
+          <li>Wazuh 4.7 SIEM with Zeek, file integrity monitoring, custom rules and Kibana dashboards</li>
+          <li>Isolation Forest model for anomaly detection</li>
+          <li>Attack simulation from Kali Linux (Nmap, Hydra, Hping3)</li>
+          <li>Multi-layer hardening: GPO, firewall, SSH, fail2ban, AppArmor, BitLocker, ClamAV and a Lynis audit</li>
+        </ul>
+        <div class="tags"><span class="tag">Wazuh</span><span class="tag">Zeek</span><span class="tag">Active Directory</span><span class="tag">Machine learning</span><span class="tag">Hardening</span></div>
+        <a class="link" href="https://github.com/mariam947">View on GitHub</a>
+      </article>
+
+      <article class="card">
+        <h3>C2 architecture simulation</h3>
+        <p>A team project that simulates a command-and-control architecture on GNS3. I analysed the captured traffic (PCAP) and wrote Suricata rules to detect it.</p>
+        <div class="tags"><span class="tag">GNS3</span><span class="tag">Suricata</span><span class="tag">PCAP analysis</span></div>
+        <a class="link" href="https://github.com/mariam947">View on GitHub</a>
+      </article>
+
+      <article class="card">
+        <h3>C2 framework from scratch</h3>
+        <p>A command-and-control framework built to simulate red team scenarios: agent session management, remote command execution and an encrypted HTTP/HTTPS channel.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">Sockets</span><span class="tag">AES</span></div>
+      </article>
+
+      <article class="card">
+        <h3>CyberSentinel: AI threat analysis</h3>
+        <p>A web app that classifies and analyses threats with a local LLM and retrieval-augmented generation. Everything runs locally, so no data leaves the machine (GDPR and HIPAA friendly).</p>
+        <div class="tags"><span class="tag">Ollama</span><span class="tag">RAG</span><span class="tag">ChromaDB</span><span class="tag">FastAPI</span></div>
+      </article>
+
+      <article class="card">
+        <h3>Password breach analysis on Azure</h3>
+        <p>A cloud architecture that scores password strength, detects leaks and generates a downloadable PDF report, with secrets protected in Key Vault.</p>
+        <div class="tags"><span class="tag">Azure</span><span class="tag">Key Vault</span><span class="tag">Node.js</span></div>
+      </article>
+
+      <article class="card">
+        <h3>SecureChain: blockchain notarization</h3>
+        <p>A decentralized notarization platform on Solana smart contracts with IPFS storage, Notary and Client roles, and client-side AES-256 encryption.</p>
+        <div class="tags"><span class="tag">Solana</span><span class="tag">Rust</span><span class="tag">IPFS</span><span class="tag">AES-256</span></div>
+      </article>
+
+      <article class="card">
+        <h3>CYBrAIn Fest CTF</h3>
+        <p>Capture-the-flag competition at UIR, played with my team Dolls1.exe.</p>
+        <div class="tags"><span class="tag">CTF</span><span class="tag">Teamwork</span></div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="exp" id="experience">
+  <div class="wrap">
+    <h2>Experience</h2>
+    <p class="lead">Internships in information systems security and IT.</p>
+    <div class="jobs">
+      <div class="job"><div class="top"><h3>PFA internship, Information Systems Security</h3><span class="when">Jun to Jul 2026</span></div>
+        <div class="org">Délégation de la Santé et de la Protection Sociale, Kénitra</div>
+        <ul><li>Deployed and secured a health server on Windows Server 2019 (Active Directory, GPO, role-based access control).</li><li>Set up real-time monitoring with a SIEM and wrote the technical end-of-internship report.</li></ul></div>
+      <div class="job"><div class="top"><h3>Technician intern</h3><span class="when">Jun to Jul 2025</span></div>
+        <div class="org">Marokkko Biz, Morocco</div>
+        <ul><li>Developed the main page of the company’s future website.</li></ul></div>
+      <div class="job"><div class="top"><h3>Intern</h3><span class="when">Jun to Jul 2024</span></div>
+        <div class="org">Global Electronic Business Solution (GEBS), Kénitra</div>
+        <ul><li>Discovered the IT environment and assisted the technical teams.</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" style="background:#e9e6f3">
+  <div class="wrap">
+    <h2>Skills</h2>
+    <p class="lead">The tools I have used in my labs and projects.</p>
+    <div class="skills">
+      <div class="skill"><h3>Monitoring and detection</h3><div class="tags"><span class="tag">Wazuh</span><span class="tag">Zeek</span><span class="tag">Suricata</span><span class="tag">Kibana</span><span class="tag">OpenSearch</span></div></div>
+      <div class="skill"><h3>Offensive security</h3><div class="tags"><span class="tag">Kali Linux</span><span class="tag">Metasploit</span><span class="tag">Nmap</span><span class="tag">Hydra</span><span class="tag">Hping3</span><span class="tag">Wireshark</span><span class="tag">CTF</span></div></div>
+      <div class="skill"><h3>Systems and hardening</h3><div class="tags"><span class="tag">Windows Server</span><span class="tag">Active Directory</span><span class="tag">GPO</span><span class="tag">Linux</span><span class="tag">fail2ban</span><span class="tag">BitLocker</span><span class="tag">GNS3</span><span class="tag">VirtualBox</span></div></div>
+      <div class="skill"><h3>Development and cloud</h3><div class="tags"><span class="tag">Python</span><span class="tag">PHP</span><span class="tag">JavaScript</span><span class="tag">HTML/CSS</span><span class="tag">SQL</span><span class="tag">Git</span><span class="tag">Azure</span></div></div>
+      <div class="skill"><h3>AI and data</h3><div class="tags"><span class="tag">Local LLMs</span><span class="tag">RAG</span><span class="tag">ChromaDB</span><span class="tag">Isolation Forest</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="dark contact" id="contact">
+  <div class="wrap">
+    <h2>Let’s talk</h2>
+    <p class="lead">I’m open to internships and collaborations in cybersecurity. Send me a message, I answer quickly.</p>
+    <div class="btns">
+      <a class="btn fill" href="mailto:lamrani.mariam7@gmail.com">Email me</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/mariam-lamrani-37707337b">LinkedIn</a>
+      <a class="btn ghost" href="https://github.com/mariam947">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer>© <span id="y"></span> Mariam Lamrani. Built with care in Kénitra.</footer>
+
+<script>
+document.getElementById('y').textContent=new Date().getFullYear();
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// Typing roles
+const roles=['Cybersecurity engineering student','Blue team and SIEM enthusiast','Detection rules writer','CTF player'];
+const el=document.getElementById('role');
+if(reduce){el.textContent=roles[0]}
+else{
+  let r=0,c=0,del=false;
+  (function tick(){
+    const w=roles[r];
+    el.textContent=w.slice(0,c);
+    if(!del&&c===w.length){del=true;return setTimeout(tick,1600)}
+    if(del&&c===0){del=false;r=(r+1)%roles.length}
+    c+=del?-1:1;
+    setTimeout(tick,del?28:60);
+  })();
+}
+
+// Network animation
+const cv=document.getElementById('net'),ctx=cv.getContext('2d');
+let W,H,nodes=[],mouse={x:-999,y:-999};
+function size(){
+  W=cv.width=cv.offsetWidth;H=cv.height=cv.offsetHeight;
+  const n=Math.max(28,Math.min(70,Math.floor(W/20)));
+  nodes=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4}));
+}
+function draw(){
+  ctx.clearRect(0,0,W,H);
+  for(const a of nodes){
+    if(!reduce){a.x+=a.vx;a.y+=a.vy;if(a.x<0||a.x>W)a.vx*=-1;if(a.y<0||a.y>H)a.vy*=-1}
+    for(const b of nodes){
+      const d=Math.hypot(a.x-b.x,a.y-b.y);
+      if(d<130){ctx.strokeStyle='rgba(124,92,255,'+(0.35*(1-d/130))+')';ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke()}
+    }
+    const m=Math.hypot(a.x-mouse.x,a.y-mouse.y);
+    if(m<160){ctx.strokeStyle='rgba(196,184,255,'+(0.6*(1-m/160))+')';ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(mouse.x,mouse.y);ctx.stroke()}
+    ctx.fillStyle=m<160?'#c4b8ff':'#7c5cff';
+    ctx.beginPath();ctx.arc(a.x,a.y,2.2,0,6.283);ctx.fill();
+  }
+  if(!reduce)requestAnimationFrame(draw);
+}
+size();draw();
+addEventListener('resize',()=>{size();if(reduce)draw()});
+cv.parentElement.addEventListener('mousemove',e=>{const r=cv.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top});
+cv.parentElement.addEventListener('mouseleave',()=>{mouse.x=mouse.y=-999});
+</script>
+</body>
+</html>
